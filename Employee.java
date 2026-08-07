@@ -1,43 +1,42 @@
 import java.util.Scanner;
 
-class Employee {
-    String name;
+public class Employee {
+
     int id;
+    String name;
     double salary;
 
-    void display() {
-        System.out.println("Name: " + name);
-        System.out.println("ID: " + id);
-        System.out.println("Salary: " + salary);
+    Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
     }
 
-    public static void main(String args[]) {
+    void display() {
+        System.out.println("Employee ID : " + id);
+        System.out.println("Employee Name : " + name);
+        System.out.println("Salary : " + salary);
+    }
+
+    public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        Employee e1 = new Employee();
-        Employee e2 = new Employee();
-
-        System.out.println("Enter First Employee Details");
-        System.out.print("Name: ");
-        e1.name = sc.nextLine();
-        System.out.print("ID: ");
-        e1.id = sc.nextInt();
-        System.out.print("Salary: ");
-        e1.salary = sc.nextDouble();
+        System.out.print("Enter Employee ID: ");
+        int id = sc.nextInt();
         sc.nextLine();
 
-        System.out.println("\nEnter Second Employee Details");
-        System.out.print("Name: ");
-        e2.name = sc.nextLine();
-        System.out.print("ID: ");
-        e2.id = sc.nextInt();
-        System.out.print("Salary: ");
-        e2.salary = sc.nextDouble();
+        System.out.print("Enter Employee Name: ");
+        String name = sc.nextLine();
 
-        System.out.println("\nFirst Employee");
-        e1.display();
+        System.out.print("Enter Salary: ");
+        double salary = sc.nextDouble();
 
-        System.out.println("\nSecond Employee");
-        e2.display();
+        Employee emp = new Employee(id, name, salary);
+
+        System.out.println("\nEmployee Details:");
+        emp.display();
+
+        sc.close();
     }
 }
